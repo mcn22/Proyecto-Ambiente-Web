@@ -1,0 +1,53 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+*{
+    margin: 0px;
+}
+
+/*------------ Menu superior ------------*/
+.top{
+    width: 100%;
+    height: 10%;
+    background-color: #2175bc;
+}
+
+#topMenu {
+    padding: 0;
+}
+   
+#topMenu li {
+    display: inline;
+}
+
+#topMenu li a {
+    font-family: Arial;
+    font-size: 16px;
+    text-decoration: none;
+    float: left;
+    padding: 10px;
+    background-color: #2175bc;
+    color: #fff;
+    margin: 10px 10px;
+}
+
+
+#topMenu li a:hover {
+    background-color: #2586d7;
+    margin-top: -2;
+    padding-bottom: 12px;
+}
+/*---------- Fin Menu superior ----------*/
+
+@media(max-width: 500px){
+    .top{
+        height: 18%;
+    }
+
+    #topMenu li a {
+        margin: 5px 5px;
+    }
+}
+
