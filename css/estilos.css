@@ -1,10 +1,32 @@
 html, body{
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
 }
 
 *{
     margin: 0px;
+}
+
+#seccion{
+    height: auto;
+    width: 75%;
+    background-color: #cfbca0;
+    float: left;
+}
+
+#lateral{
+    height: auto;
+    width: 25%;
+    background-color: #919191;
+    float: left;
+}
+
+#pie{
+    height: 10%;
+    width: 100%;
+    background-color: #4e4e4e;
+    float: inline-end;
 }
 
 /*------------ Menu superior ------------*/
@@ -24,11 +46,10 @@ html, body{
 
 #topMenu li a {
     font-family: Arial;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
     float: left;
     padding: 10px;
-    background-color: #2175bc;
     color: #fff;
     margin: 10px 10px;
 }
@@ -37,17 +58,72 @@ html, body{
 #topMenu li a:hover {
     background-color: #2586d7;
     margin-top: -2;
-    padding-bottom: 12px;
 }
+
 /*---------- Fin Menu superior ----------*/
 
-@media(max-width: 500px){
+/*---------    Diseño movil    ----------*/
+
+@media(max-width: 650px){
     .top{
         height: 18%;
     }
 
     #topMenu li a {
-        margin: 5px 5px;
+        margin: 0px;
+    }
+
+    #seccion{
+        width: 100%;
+    }
+    
+    #lateral{
+        width: 100%;
+    }
+
+    #pie{
+        height: 15%;
     }
 }
 
+/*----------  Fin Diseño movil  ----------*/
+
+/*----------  Diseño elementos  ----------*/
+
+.post{
+    padding: 30px;
+    margin: 20px;
+    text-align: justify;
+}
+
+.img{
+    padding: 10px 0px;
+    margin: 10px;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+}
+
+#categoriaMenu{
+    padding: 20px;
+}
+
+#menuLateral li {
+    display: inline-flex;
+}
+
+
+#menuLateral li a {
+    font-family: Arial;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 5px;
+    color: #fff;
+    margin: 10px 10px;
+}
+
+#derechosReservados{
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
