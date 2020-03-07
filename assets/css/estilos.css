@@ -8,17 +8,27 @@ html, body{
     margin: 0px;
 }
 
+.container{
+    width: 85%;
+    margin: 0px auto;
+}
+
 #seccion{
-    height: auto;
-    width: 75%;
-    background-color: #cfbca0;
     float: left;
+    width: 75%;
+    margin: 20px auto;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 0px 1px #d3d3d3,
+    0px 3px 7px #d3d3d3,
+    0px 0px 1px #ffffff inset,
+    0px -3px 2px #d3d3d3 inset;
 }
 
 #lateral{
     height: auto;
-    width: 25%;
-    background-color: #919191;
+    width: 20%;
+    background-color: #ffffff;
     float: left;
 }
 
@@ -109,7 +119,7 @@ html, body{
 }
 
 #menuLateral li {
-    display: inline-flex;
+    display: inline-block;
 }
 
 
@@ -118,7 +128,6 @@ html, body{
     font-size: 16px;
     text-decoration: none;
     padding: 5px;
-    color: #fff;
     margin: 10px 10px;
 }
 
@@ -127,3 +136,24 @@ html, body{
     padding: 20px;
     text-align: center;
 }
+
+.block{
+    display: block;
+    width: 85%;
+    margin: 20px auto;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 0px 1px #d3d3d3,
+    0px 3px 7px #d3d3d3,
+    0px 0px 1px #ffffff inset,
+    0px -3px 2px #d3d3d3 inset;
+}
+
+label, input{
+    display: block;
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
