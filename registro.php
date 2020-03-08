@@ -51,10 +51,10 @@ if (isset($_POST)) {
     if(count($errores) == 0){
         $guardar_usuario = true;
         //insercion del usuario en la base de datos
-        $md5pass = md5($password);
+        $pass_cifrado = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
 
         $sql = "INSERT INTO usuarios (nombre_usuario, nickname_usuario, pass_usuario)
-        VALUES ('$nombre', '$username', '$md5pass')";
+        VALUES ('$nombre', '$username', '$pass_cifrado')";
         $ejecutar_guardar = mysqli_query($db, $sql);
 
         //var_dump(mysqli_error($db));

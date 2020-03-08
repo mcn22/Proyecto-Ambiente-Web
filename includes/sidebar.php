@@ -2,23 +2,34 @@
 
 <aside id="lateral">
 
+        <!--if(isset($_SESSION['usuario'])) muestra esta seccion si hay un usuario logueado-->
         <?php if(isset($_SESSION['usuario'])) : ?>
             <div class="block">
-                <h3>Bienvenido <?php $_SESSION['usuario']['nombre_usuario']?></h3>
+                <h3>Bienvenido <?php echo $_SESSION['usuario']['nombre_usuario']?></h3>
+            </div>
+            <div class="block">
+                <a href="logout.php">Cerrar Sesión</a>
             </div>
         <?php endif; ?>
 
-        <div id="login" class="block">
-            <h3>Identificate</h3>
-            <form method="POST" action="login.php">
-                <label for="username">Nombre de usuario:</label>
-                <input type="text" name="username">
-                <label for="password">Contraseña:</label>
-                <input type="password" name="password">
-                <button type="submit" name="submit">Ingresar</button>
-            </form>
-        </div>
-        <div id="register" class="block">
+        <!--if(!isset($_SESSION['usuario'])) muestra seccion de login si no hay un usuario logueado-->
+        <?php if(!isset($_SESSION['usuario'])) : ?>          
+            <div id="login" class="block">
+                <h3>Identificate</h3>
+                <?php echo isset($_SESSION['error_login']) ? $_SESSION['error_login']: ''?><!--if ternario-->
+                <form method="POST" action="login.php">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password">
+                    <button type="submit" name="submit">Ingresar</button>
+                </form>
+            </div>
+        <?php endif; ?>
+
+        <!--if(!isset($_SESSION['usuario'])) muestra seccion de registro si no hay un usuario logueado-->
+        <?php if(!isset($_SESSION['usuario'])) : ?>          
+            <div id="register" class="block">
             <h3>Registrate</h3>
             <?php if(isset($_SESSION['completado'])): ?>
             <div>
@@ -48,6 +59,8 @@
             </form>
             <?php borrarErrores()?>
         </div>
+        <?php endif; ?>
+
         <div class="block">
             <h2>Categorías</h2>
             <ul id="menuLateral">

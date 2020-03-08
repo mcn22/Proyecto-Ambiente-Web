@@ -4,6 +4,12 @@
 require_once 'includes/conexion.php';
 
 if(isset($_POST)){
+    
+    if (isset($_SESSION['error_login'])) {
+        unset($_SESSION['error_login']);
+        //borra la sesion de error cuando ya no hay error
+    }  
+
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
@@ -13,13 +19,10 @@ if(isset($_POST)){
     if ($login && mysqli_num_rows($login) == 1) {
         $usuario = mysqli_fetch_assoc($login);
         //mysqli_fetch_assoc() me trae un array asociativo con lo consultado en el select
-        $md5pass = md5($password);
-        $verificacion = password_verify($md5pass, $usuario['pass_usuario']);
-
-        if ($verificacion) {
+        $verify = password_verify($password, $usuario['pass_usuario']);
+        //password_verify() desencripta el password de la base de datos y lo compara, devueve booleano
+        if ($verify) {
             $_SESSION['usuario'] = $usuario;
-
-           
         }else{
             $_SESSION['error_login'] = "Login incorrecto";
         }
@@ -27,7 +30,6 @@ if(isset($_POST)){
     }else{
         $_SESSION['error_login'] = "Login incorrecto";
     }
-
 
 }
 
