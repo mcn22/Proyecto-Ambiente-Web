@@ -1,159 +1,279 @@
-html, body{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-*{
-    margin: 0px;
+* {
+  margin: 0;
 }
-
+/*----UTILIDADES----*/
 .container{
-    width: 85%;
-    margin: 0px auto;
+  width: 90%;
+  margin: 0 auto;
+}
+img{
+  max-width: 100%;
+}
+/*----FIN UTILIDADES----*/
+/*-------NAV BAR-------*/
+#hi-usuario{
+  color: cornflowerblue;
+  padding: 10px 0;
+}
+#login{
+text-align: center;
+}
+#registro{
+  text-align: center;
 }
 
-#seccion{
-    float: left;
-    width: 75%;
-    margin: 20px auto;
-    background: white;
-    padding: 10px;
-    box-shadow: 0px 0px 1px #d3d3d3,
-    0px 3px 7px #d3d3d3,
-    0px 0px 1px #ffffff inset,
-    0px -3px 2px #d3d3d3 inset;
+header{
+  background-color: #4e4e4e;
+}
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li{
+ display: inline-block;
+ margin-left: 70px;
+ padding-top: 23px;
+ margin-bottom: 5px;
 }
 
-#lateral{
-    height: auto;
-    width: 20%;
-    background-color: #ffffff;
-    float: left;
+nav ul li a{
+color: white;
+text-decoration: none;
+font-size: 23px;
+}
+nav a:hover{
+  text-decoration: underline black;
 }
 
-#pie{
-    height: 10%;
-    width: 100%;
+@media (max-width: 730px) {
+  #hi-usuario{
+    color: cornflowerblue;
+    padding: 10px 0;
+  }
+  .container{
+    width: 80%;
+    margin: 0 auto;
+  }
+  header{
     background-color: #4e4e4e;
-    float: inline-end;
-}
-
-/*------------ Menu superior ------------*/
-.top{
-    width: 100%;
-    height: 10%;
-    background-color: #2175bc;
-}
-
-#topMenu {
+  }
+  nav ul{
+    margin: 0;
     padding: 0;
-}
+    list-style: none;
+  }
+  nav li{
+   display: block;
+   margin-left: 70px;
+   padding-top: 23px;
+   margin-bottom: 5px;
    
-#topMenu li {
-    display: inline;
+  }
+  
+  nav ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  }
+  nav a:hover{
+    text-decoration: underline black;
+  }
+}
+@media (max-width: 768px) {
+  #hi-usuario{
+    color: cornflowerblue;
+    padding: 10px 0;
+  }
+  .container{
+    width: 80%;
+    margin: 0 auto;
+  }
+  header{
+    background-color: #4e4e4e;
+  }
+  nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  nav li{
+   display: block;
+   margin-left: 70px;
+   padding-top: 23px;
+   margin-bottom: 5px;
+ text-align: center;
+  }
+  
+  nav ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  }
+  nav a:hover{
+    text-decoration: underline black;
+  }
+}
+/*-------FIN NAV BAR-------*/
+/*------CONTENIDO INDEX------*/
+.informacion-nosotros{
+  width: 30%;
+  float: left;
+  padding: 10px;
+  text-align: center;
 }
 
-#topMenu li a {
-    font-family: Arial;
-    font-size: 18px;
-    text-decoration: none;
-    float: left;
-    padding: 10px;
-    color: #fff;
-    margin: 10px 10px;
+.informacion-nosotros h3{
+  margin: 8px 0;
 }
-
-
-#topMenu li a:hover {
-    background-color: #2586d7;
-    margin-top: -2;
+#h2-nosotros{
+text-align: center;
+margin: 20px 0;
 }
-
-/*---------- Fin Menu superior ----------*/
-
-/*---------    Diseño movil    ----------*/
-
-@media(max-width: 650px){
-    .top{
-        height: 18%;
-    }
-
-    #topMenu li a {
-        margin: 0px;
-    }
-
-    #seccion{
-        width: 100%;
-    }
-    
-    #lateral{
-        width: 100%;
-    }
-
-    #pie{
-        height: 15%;
-    }
-}
-
-/*----------  Fin Diseño movil  ----------*/
-
-/*----------  Diseño elementos  ----------*/
-
-.post{
-    padding: 30px;
-    margin: 20px;
-    text-align: justify;
-}
-
-.img{
-    padding: 10px 0px;
-    margin: 10px;
-    position: relative;
-    max-width: 100%;
-    height: auto;
-}
-
-#categoriaMenu{
-    padding: 20px;
-}
-
-#menuLateral li {
-    display: inline-block;
-}
-
-
-#menuLateral li a {
-    font-family: Arial;
-    font-size: 16px;
-    text-decoration: none;
-    padding: 5px;
-    margin: 10px 10px;
-}
-
-#derechosReservados{
-    color: #fff;
-    padding: 20px;
+@media (max-width: 730px) {
+  .informacion-nosotros{
+    width: 90%;
     text-align: center;
+  }
+  
+  .informacion-nosotros h3{
+    margin: 8px 0;
+  }
+  #h2-nosotros{
+  text-align: center;
+  margin: 20px 0;
+  }
+  #pie{
+    display: none;
+  }
+}
+/*---PRODUCTOS INDEX---*/
+main h2{
+  text-align: center;
+  margin: 20px 0;
+}
+.producto{
+  background-color: #4e4e4e;
+  width: 30%;
+}
+.img-producto{
+  width: 100%;
+  height: 60%;
+}
+.contenido-producto{
+width: 100%;
+height: 40%;
+color: white;
+padding: 10px;
+}
+.contenido-producto a{
+text-decoration: none;
+color: cornflowerblue;
 }
 
-.block{
-    display: block;
-    width: 85%;
-    margin: 20px auto;
-    background: white;
-    padding: 10px;
-    box-shadow: 0px 0px 1px #d3d3d3,
-    0px 3px 7px #d3d3d3,
-    0px 0px 1px #ffffff inset,
-    0px -3px 2px #d3d3d3 inset;
+.contenido-producto a:hover{
+  text-decoration: underline black;
 }
-
-label, input{
-    display: block;
-    width: 95%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.contenido-producto h3, p, a{
+  padding: 3px 0;
 }
+@media (max-width: 730px) {
+  .producto{
+    background-color: #4e4e4e;
+    width: 90%;
+  }
+  .img-producto{
+    width: 100%;
+    height: 60%;
+  }
+  .contenido-producto{
+  width: 100%;
+  height: 40%;
+  color: white;
+  padding: 10px;
+  }
+  .contenido-producto a{
+  text-decoration: none;
+  color: cornflowerblue;
+  }
+  .contenido-producto a:hover{
+    text-decoration: underline black;
+  }
+  .contenido-producto h3, p, a{
+    padding: 3px 0;
+  }
+}
+/*---FIN PRODUCTOS INDEX---*/
+/*------CONTENIDO INDEX------*/
+/*---- FOOTER ------*/
+#pie {
+  height: 7%;
+  width: 100%;
+  background-color: #4e4e4e;
+  float: inline-end;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#derechosReservados {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+/*----FIN FOOTER----*/
 
 
+/*----------  POP UP FORM  ----------*/
+.bg-modal-login{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  /*-----FLEX PARA CENTRAR CONTENIDO DE HIJO(modal-content)------*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.bg-modal-registro{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  /*-----FLEX PARA CENTRAR CONTENIDO DE HIJO(modal-content)------*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal-content{
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 4px;
+}
+input{
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+}
+.close-login{
+  margin-left: 5px;
+  font-size: 42px;
+}
+.close-registro{
+  margin-left: 5px;
+  font-size: 42px;
+}
+/*---------- FIN POP UP FORM ----------*/
