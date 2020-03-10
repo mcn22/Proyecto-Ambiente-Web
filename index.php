@@ -28,10 +28,8 @@
     </div>
 </section>
 
+
 <main class="container">
-    <h2>Venta</h2>
-
-
     <div class="producto">
         <div class="img-producto">
             <img src="../Proyecto-Ambiente-Web/assets/img/bh.jpg" alt="IMAGEN PRODUCTO">
@@ -45,7 +43,7 @@
     </div>
 
 
-    
+
 </main>
 <?php require_once 'includes/footer.php'; ?>
 </body>
