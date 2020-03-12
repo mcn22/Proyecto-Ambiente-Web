@@ -1,4 +1,5 @@
 <?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/conexion.php'; ?>
 
 <section class="container">
     <h2 id="h2-nosotros">Sobre Nosotros</h2>
