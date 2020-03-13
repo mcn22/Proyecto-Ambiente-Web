@@ -28,24 +28,36 @@
     </div>
 </section>
 
-<main class="container">
-    <h2>Venta</h2>
+<?php 
+require_once 'includes/conexion.php'; 
+    $select = "SELECT * FROM `producto` ";
+    $query = mysqli_query($db, $select);
+    $imagen = "";
+    while ($row = mysqli_fetch_array($query)) {
+        $imagen = $row['imageName'];
+        $nombre = $row['nombre'];
+        $desc = $row['descripccion'];
+        $precio = $row['precio']; ?>
 
-
+        <main class="container">
     <div class="producto">
         <div class="img-producto">
-            <img src="../Proyecto-Ambiente-Web/assets/img/bh.jpg" alt="IMAGEN PRODUCTO">
+            <?php echo '<img src="imagenesProductos/'.$imagen.'">';?>
         </div>
         <div class="contenido-producto">
-            <h3>NOMBRE PRODUCTO</h3>
-            <p>DESCRIPCCION PRODUCTO</p>
-            <p>PRECIO PRODUCTO</p>
+            <h3><?php echo $nombre ?></h3>
+            <p><?php echo $desc ?></p>
+            <p>$ <?php echo $precio ?></p>
             <a href="#">VER PRODUCTO</a>
         </div>
     </div>
 
+   <?php }
+    if (mysqli_close($db)) {
+        
+        }
+    ?>
 
-    
 </main>
 <?php require_once 'includes/footer.php'; ?>
 </body>
