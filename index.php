@@ -37,6 +37,7 @@ require_once 'includes/conexion.php';
         $imagen = $row['imageName'];
         $nombre = $row['nombre'];
         $desc = $row['descripccion'];
+        $idProducto = $row['idProducto'];
         $precio = $row['precio']; ?>
 
         <main class="container">
@@ -48,14 +49,12 @@ require_once 'includes/conexion.php';
             <h3><?php echo $nombre ?></h3>
             <p><?php echo $desc ?></p>
             <p>$ <?php echo $precio ?></p>
-            <a href="#">VER PRODUCTO</a>
+            <a href="producto.php?id=<?php echo $idProducto ?>">VER PRODUCTO</a>
         </div>
     </div>
 
    <?php }
-    if (mysqli_close($db)) {
-        
-        }
+    mysqli_close($db);
     ?>
 
 </main>
