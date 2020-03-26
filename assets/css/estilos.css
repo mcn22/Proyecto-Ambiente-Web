@@ -201,10 +201,11 @@ nav a:hover {
 .contenido-producto a {
     text-decoration: none;
     color: cornflowerblue;
+    cursor: pointer;
 }
 
 .contenido-producto a:hover {
-    text-decoration: underline black;
+    text-decoration: underline white;
 }
 
 .contenido-producto h3,
@@ -325,3 +326,21 @@ input {
 
 
 /*---------- FIN POP UP FORM ----------*/
+
+
+/* VISTA PRODUCTO */
+
+.vista-producto {
+    margin: 20px 0;
+    background-color: #4e4e4e;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.vista-img-producto {
+    width: 100%;
+    height: 60%;
+}
+
+
+/* FIN VISTA PRODUCTO */
