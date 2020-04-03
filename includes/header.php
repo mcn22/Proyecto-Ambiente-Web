@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d2e44cecd9.js" crossorigin="anonymous"></script>
     <script src="./controladores/validaciones.js" type="text/javascript"></script>
-    <script src="./controladores/registro.js" type="text/javascript"></script>
+    <script src="./controladores/manejoUsuarios.js" type="text/javascript"></script>
     <script src="./controladores/login.js" type="text/javascript"></script>
 
     <title>Proyecto Ambiente Web</title>
@@ -20,9 +20,9 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <ul>           
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
-                    <a id="hi-usuario">Bienvenido <?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
+                    <a id="hi-usuario" href="infoUsuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
                     <?php endif; ?>
                 </li>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>

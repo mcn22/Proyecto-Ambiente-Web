@@ -37,7 +37,7 @@ require_once 'includes/conexion.php';
         $imagen = $row['imageName'];
         $nombre = $row['nombre'];
         $desc = $row['descripccion'];
-        $idProducto = $row['idProducto'];
+        //$idProducto = $row['idProducto']; esta dando problemas
         $precio = $row['precio']; ?>
 
         <main class="container">
