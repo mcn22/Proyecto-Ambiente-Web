@@ -14,7 +14,7 @@
 require_once 'conexion.php'; 
 
 if (isset($_POST['submit'])) {
-    $nombre = $_POST['nombre'];
+    $nombre = strtolower($_POST['nombre']);
     $desc = $_POST['descripccion'];
     $precio = $_POST['precio'];
     $imagen = $_FILES['imagen']['name'];
