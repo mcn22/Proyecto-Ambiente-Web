@@ -1,4 +1,4 @@
-<?php require_once 'conexion.php'?>
+<?php require_once 'includes/conexion.php'?>
 <?php require_once "includes/funciones.php" ?>
 
 <!DOCTYPE html>
@@ -13,14 +13,15 @@
     <script src="./controladores/validaciones.js" type="text/javascript"></script>
     <script src="./controladores/manejoUsuarios.js" type="text/javascript"></script>
     <script src="./controladores/login.js" type="text/javascript"></script>
+    <script src="./controladores/manejoOrdenes.js" type="text/javascript"></script>
 
     <title>Proyecto Ambiente Web</title>
 </head>
 
-<body>
+<body onload="listarOrdenes()">
     <header>
         <nav>
-            <ul>           
+            <ul>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
                     <a id="hi-usuario" href="usuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
                     <?php endif; ?>
@@ -29,11 +30,8 @@
                     <a href="logout.php">Cerrar Sesión</a>
                     <?php endif; ?></li>
                 <li><a href="index.php">Inicio</a></li>
-                <!-- <li><a href="#">Sobre Nosotros</a></li>
-                    <li><a href="#">Productos</a></li> -->
                 <li><a href="#" id="login">Login</a></li>
                 <li><a href="#" id="registro">Registro</a></li>
-
                 <div class="bg-modal-login">
                     <div class="modal-content">
                         <i class="far fa-window-close close-login"></i>
@@ -45,7 +43,7 @@
                                 <input type="text" id="username" placeholder="Nombre de usuario:">
                                 <input type="password" id="password" placeholder="Contraseña:">
                                 <input type="button" value="Ingresar" onclick="login()">
-                            </form>    
+                            </form>
                         </div>
                         <div class="align-text-center">
                             <h5 id="h5InfoLog"></h5>
@@ -53,7 +51,6 @@
                         <?php endif;?>
                     </div>
                 </div>
-
                 <div class="bg-modal-registro">
                     <div class="modal-content">
                         <i class="far fa-window-close close-registro"></i>
@@ -76,7 +73,6 @@
                 </div>
             </ul>
         </nav>
-
         <!-- Dice si usuario esta logeado y quita los botones de loggearse y registro. -->
         <?php if (isset($_SESSION['usuario'])) : ?>
         <script>
@@ -86,20 +82,31 @@
         registro.parentNode.removeChild(registro);
         </script>
         <?php endif;?>
-
-        <!-- Manejan el modal para login y registro: -->
-        <script>
-        document.getElementById('login').addEventListener('click', () => {
-            document.querySelector('.bg-modal-login').style.display = 'flex';
-        });
-        document.getElementById('registro').addEventListener('click', () => {
-            document.querySelector('.bg-modal-registro').style.display = 'flex';
-        });
-        document.querySelector('.close-login').addEventListener('click', () => {
-            document.querySelector('.bg-modal-login').style.display = 'none';
-        });
-        document.querySelector('.close-registro').addEventListener('click', () => {
-            document.querySelector('.bg-modal-registro').style.display = 'none';
-        });
-        </script>
     </header>
+
+    
+
+    <section class="container ">
+        <div class="tablas">
+        <h2>Lista de ordenes realizadas</h2>   
+        <div class="ta" id="campoTabla">        
+        </div>
+        </div>
+        
+    </section>
+
+    <section class="container ">
+        <div class="tablas">
+        <h2>Detalle de la compra</h2>    
+        <div class="ta" id="detalle">                 
+        </div>
+        </div>
+        
+    </section>
+
+
+    </main>
+    <?php require_once 'includes/footer.php'; ?>
+</body>
+
+</html>
