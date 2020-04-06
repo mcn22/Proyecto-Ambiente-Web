@@ -1,13 +1,12 @@
 <?php require_once 'includes/header.php'; ?>
 
 <?php
-//if (isset($_GET['id'])) {
 
 $id = $_GET['id'];
 require_once 'includes/conexion.php';
 $select = "SELECT * FROM `producto` WHERE idProducto=$id";
 $query = mysqli_query($db, $select);
-$imagen = "";
+
 while ($row = mysqli_fetch_array($query)) {
     $imagen = $row['imageName'];
     $nombre = $row['nombre'];
@@ -17,7 +16,7 @@ while ($row = mysqli_fetch_array($query)) {
 
     <main>
         <div class="container">
-            <div class="vista-producto respuesta">
+            <div class="vista-producto">
 
                 <div class="vista-img-producto">
                     <?php echo '<img src="imagenesProductos/' . $imagen . '">'; ?>
@@ -36,7 +35,7 @@ while ($row = mysqli_fetch_array($query)) {
                
                 <br>
                 <div class="botones-vista">
-                    <button id="boton-comprar" value="<?php echo $idProducto ?>">COMPRAR</button>
+                    <a id="boton-compra" href="carrito.php?id=<?php echo $idProducto?>">COMPRAR</a>
                 </div>
             </div>
 
@@ -49,7 +48,6 @@ mysqli_close($db);
     ?>
 
     </main>
-    <script src="./controladores/carrito.js"></script>
     <?php require_once 'includes/footer.php'; ?>
     </body>
 
