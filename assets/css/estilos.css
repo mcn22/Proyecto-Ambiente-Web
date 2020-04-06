@@ -366,3 +366,36 @@ input {
     
 }
 
+table{
+    border-collapse: collapse;
+}
+
+table tr th {
+    border: 2px solid black;
+    color: white;
+    padding:10px 30px 10px 30px;
+    background: #95999c;
+}
+
+.ta table tbody tr td{
+    border: 2px solid black;
+    padding:10px 30px 10px 30px;
+    background: white;
+}
+
+.tablas{
+    padding: 30px;
+    margin-top: 10px;
+    float: left;
+}
+
+.mt-5{
+    margin-top: 15px;
+}
+
+.botonTabla{
+    margin: auto;
+    width: 100%;
+    height: 40px;
+}
+
