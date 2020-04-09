@@ -18,6 +18,7 @@ if(isset($_POST)){
 
     if ($login && mysqli_num_rows($login) == 1) {
         $usuario = mysqli_fetch_assoc($login);
+        $_SESSION['user_id'] = $usuario['id_usuario'];
         //mysqli_fetch_assoc() me trae un array asociativo con lo consultado en el select
         $verify = password_verify($password, $usuario['pass_usuario']);
         //password_verify() desencripta el password de la base de datos y lo compara, devueve booleano

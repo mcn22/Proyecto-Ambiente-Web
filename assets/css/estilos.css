@@ -321,3 +321,23 @@ input {
 }
 
 /* FIN VISTA PRODUCTO */
+
+/* CENTRADO DIV MENSAJE */
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#h1Centered{
+margin-bottom: 15px;
+}
+/* CENTRADO DIV MENSAJE */
+
+/* CARRITO INICIO */
+
+
+
+/* CARRITO INICIO */
