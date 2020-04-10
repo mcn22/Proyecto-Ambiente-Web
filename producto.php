@@ -14,7 +14,8 @@
         $nombre = $row['nombre'];
         $desc = $row['descripccion'];
         $idProducto = $row['idProducto'];
-        $precio = $row['precio']; ?>
+        $precio = $row['precio'];
+        $cant = $row['cantVenta'] ?>
 
 
 
@@ -36,9 +37,13 @@
 
             <br>
             <?php if (isset($_SESSION['usuario'])) : ?>
-                <div class="botones-vista">
-                    <a id="boton-compra" href="modelo/agregar_carrito.php?id=<?php echo $idProducto ?>">COMPRAR</a>
-                </div>
+                <form action="modelo/agregar_carrito.php" method="get">
+
+                    <input type="number" name="cantidad" placeholder="CANTIDAD" 
+                    min="1" max="<?php echo $cant ?>" required="true" value="1">
+
+                    <button class="botones-vista" type="submit" name="id" value="<?php echo $idProducto ?>">COMPRAR</button>
+                </form>
             <?php endif; ?>
 
             <?php if (!isset($_SESSION['usuario'])) : ?>
