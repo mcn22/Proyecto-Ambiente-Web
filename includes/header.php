@@ -20,17 +20,22 @@
 <body>
     <header>
         <nav>
-            <ul>           
+            <ul>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
-                    <a id="hi-usuario" href="usuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
+                        <a id="hi-usuario" href="infoUsuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
                     <?php endif; ?>
                 </li>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
-                    <a href="logout.php">Cerrar Sesión</a>
+                        <a href="logout.php">Cerrar Sesión</a>
                     <?php endif; ?></li>
                 <li><a href="index.php">Inicio</a></li>
                 <!-- <li><a href="#">Sobre Nosotros</a></li>
                     <li><a href="#">Productos</a></li> -->
+                <!-- CARRITO  -->
+                <?php if (isset($_SESSION['usuario'])) : ?>
+                    <li><a href="carrito.php">Carrito</a></li>
+                <?php endif; ?>
+                <!-- CARRITO  -->
                 <li><a href="#" id="login">Login</a></li>
                 <li><a href="#" id="registro">Registro</a></li>
 
@@ -39,18 +44,18 @@
                         <i class="far fa-window-close close-login"></i>
                         <!--if(!isset($_SESSION['usuario'])) muestra seccion de login si no hay un usuario logueado-->
                         <?php if (!isset($_SESSION['usuario'])) : ?>
-                        <div id="login" class="block align-text-center">
-                            <h3>Identificate</h3>
-                            <form>
-                                <input type="text" id="username" placeholder="Nombre de usuario:">
-                                <input type="password" id="password" placeholder="Contraseña:">
-                                <input type="button" value="Ingresar" onclick="login()">
-                            </form>    
-                        </div>
-                        <div class="align-text-center">
-                            <h5 id="h5InfoLog"></h5>
-                        </div>
-                        <?php endif;?>
+                            <div id="login" class="block align-text-center">
+                                <h3>Identificate</h3>
+                                <form>
+                                    <input type="text" id="username" placeholder="Nombre de usuario:">
+                                    <input type="password" id="password" placeholder="Contraseña:">
+                                    <input type="button" value="Ingresar" onclick="login()">
+                                </form>
+                            </div>
+                            <div class="align-text-center">
+                                <h5 id="h5InfoLog"></h5>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -59,19 +64,19 @@
                         <i class="far fa-window-close close-registro"></i>
                         <!--if(!isset($_SESSION['usuario'])) muestra seccion de registro si no hay un usuario logueado-->
                         <?php if (!isset($_SESSION['usuario'])) : ?>
-                        <div id="register" class="block align-text-center">
-                            <h3>Registrate</h3>
-                            <form>
-                                <input type="text" id="nombre" placeholder="Nombre:">
-                                <input type="text" id="nickname" placeholder="Nickname:">
-                                <input type="password" id="pass" placeholder="Contraseña:">
-                                <input type="button" value="Registrarse" onclick="registrar()">
-                            </form>
-                        </div>
-                        <div class="align-text-center">
-                            <h5 id="h5Info"></h5>
-                        </div>
-                        <?php endif;?>
+                            <div id="register" class="block align-text-center">
+                                <h3>Registrate</h3>
+                                <form>
+                                    <input type="text" id="nombre" placeholder="Nombre:">
+                                    <input type="text" id="nickname" placeholder="Nickname:">
+                                    <input type="password" id="pass" placeholder="Contraseña:">
+                                    <input type="button" value="Registrarse" onclick="registrar()">
+                                </form>
+                            </div>
+                            <div class="align-text-center">
+                                <h5 id="h5Info"></h5>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </ul>
@@ -79,27 +84,27 @@
 
         <!-- Dice si usuario esta logeado y quita los botones de loggearse y registro. -->
         <?php if (isset($_SESSION['usuario'])) : ?>
-        <script>
-        var login = document.getElementById('login');
-        login.parentNode.removeChild(login);
-        var registro = document.getElementById('registro');
-        registro.parentNode.removeChild(registro);
-        </script>
-        <?php endif;?>
+            <script>
+                var login = document.getElementById('login');
+                login.parentNode.removeChild(login);
+                var registro = document.getElementById('registro');
+                registro.parentNode.removeChild(registro);
+            </script>
+        <?php endif; ?>
 
         <!-- Manejan el modal para login y registro: -->
         <script>
-        document.getElementById('login').addEventListener('click', () => {
-            document.querySelector('.bg-modal-login').style.display = 'flex';
-        });
-        document.getElementById('registro').addEventListener('click', () => {
-            document.querySelector('.bg-modal-registro').style.display = 'flex';
-        });
-        document.querySelector('.close-login').addEventListener('click', () => {
-            document.querySelector('.bg-modal-login').style.display = 'none';
-        });
-        document.querySelector('.close-registro').addEventListener('click', () => {
-            document.querySelector('.bg-modal-registro').style.display = 'none';
-        });
+            document.getElementById('login').addEventListener('click', () => {
+                document.querySelector('.bg-modal-login').style.display = 'flex';
+            });
+            document.getElementById('registro').addEventListener('click', () => {
+                document.querySelector('.bg-modal-registro').style.display = 'flex';
+            });
+            document.querySelector('.close-login').addEventListener('click', () => {
+                document.querySelector('.bg-modal-login').style.display = 'none';
+            });
+            document.querySelector('.close-registro').addEventListener('click', () => {
+                document.querySelector('.bg-modal-registro').style.display = 'none';
+            });
         </script>
     </header>
