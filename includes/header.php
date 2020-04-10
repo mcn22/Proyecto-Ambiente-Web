@@ -22,7 +22,7 @@
         <nav>
             <ul>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
-                        <a id="hi-usuario" href="infoUsuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
+                        <a id="hi-usuario" href="usuario.php"><?php echo $_SESSION['usuario']['nombre_usuario'] ?></a>
                     <?php endif; ?>
                 </li>
                 <li><?php if (isset($_SESSION['usuario'])) : ?>
