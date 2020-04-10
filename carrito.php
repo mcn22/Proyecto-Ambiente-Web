@@ -5,9 +5,7 @@
 
     <?php
     session_start();
-    
     var_dump($_SESSION['carrito_array']);
-
     $totalFinal = 0;
     var_dump($_SESSION['carrito_array']);
 
@@ -15,9 +13,11 @@
 
         require_once 'includes/conexion.php';
 
+        //SE ESCOJE EL ARRAY DE IDS Y SE DIVIDE
         $ids = $_SESSION['carrito_array'];
         $id = implode(',', $ids);
-
+        //FIN SE ESCOJE EL ARRAY DE IDS Y SE DIVIDE
+        
         var_dump($_SESSION['carrito_array']);
 
         $select = "SELECT idProducto, ID_DETALLE , nombre, descripccion, imageName, cantidad, costo FROM producto, detalleorden WHERE producto.idProducto IN ($id)";

@@ -1,4 +1,5 @@
 <?php
+//AGREGAR IDS DEL PRODUCTO A ARRAY DE IDS 
 session_start();
 $idProducto = $_GET['id'];
 
@@ -9,7 +10,7 @@ if (empty($_SESSION['carrito_array'])) {
 
 array_push($_SESSION['carrito_array'], $idProducto);
 var_dump($_SESSION['carrito_array']);
-
+// FIN AGREGAR IDS DEL PRODUCTO A ARRAY DE IDS
 
 $costo = 0;
 $cantidad = $_GET['cantidad'];

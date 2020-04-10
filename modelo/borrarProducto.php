@@ -1,4 +1,5 @@
 <?php
+//BORRAR DEL ARRAY DE IDS EL ID DEL PRODUCTO QUE SE SELECCIONO
 session_start();
 $idDetalle = $_GET['id'];
 echo $idDetalle;
@@ -14,6 +15,7 @@ if (($key = array_search($idProd, $_SESSION['carrito_array'])) !== false) {
 }
 
 var_dump($carritoIDS);
+//FIN BORRAR DEL ARRAY DE IDS EL ID DEL PRODUCTO QUE SE SELECCIONO
 
 require_once '../includes/conexion.php';
 $select = "DELETE FROM detalleorden WHERE ID_DETALLE = $idDetalle";
