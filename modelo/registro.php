@@ -22,6 +22,18 @@ if (!$cnx) {
         case "5":
             eliminaCuenta($cnx);
         break;
+        case "6":
+            revisaSesion();
+        break;
+        case "7":
+            revisaTipoUsuario();
+        break;
+        case "8":
+            devuelveNombreYNick();
+        break;   
+        case "9":
+            cierraSesion();
+        break;     
         default:
             # code...
         break;
@@ -105,5 +117,37 @@ function eliminaCuenta($cnx){
         echo "0";
     }//fin del segundo else
 }//fin de cambio del pass
+
+function revisaSesion(){
+    if(isset($_SESSION['usuario'])){
+        $datosUsuario = array(
+            'nombre_usuario' => $_SESSION['usuario']['nombre_usuario'],
+            'tipoUsuario' => $_SESSION['usuario']['tipoUsuario']);
+        echo json_encode($datosUsuario, JSON_FORCE_OBJECT);
+    }else{
+        echo "0";
+    }
+}//fin de la revision de la sesion
+
+function devuelveNombreYNick(){
+    if(isset($_SESSION['usuario'])){
+        $datosUsuario = array(
+            'nombre_usuario' => $_SESSION['usuario']['nombre_usuario'],
+            'nickname_usuario' => $_SESSION['usuario']['nickname_usuario']);
+        echo json_encode($datosUsuario, JSON_FORCE_OBJECT);
+    }else{
+        echo "0";
+    }
+}//fin de la devolucion del nick y el nombre
+
+function cierraSesion(){
+    if(isset($_SESSION['usuario'])){
+        session_unset();
+        session_destroy();
+        echo "1";
+    }else{
+        echo "0";
+    }
+}//fin del cerrado de la sesion
 
 ?>

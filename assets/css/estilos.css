@@ -39,9 +39,6 @@ img {
   text-align: center;
 }
 
-.align-text-center {
-  text-align: center;
-}
 
 .align-text-center{
     text-align: center;
@@ -149,7 +146,6 @@ nav a:hover {
 
 /*------CONTENIDO INDEX------*/
 
-<<<<<<< HEAD
 .informacion-nosotros {
     width: 30%;
     float: left;
@@ -191,8 +187,6 @@ nav a:hover {
 }
 
 
-=======
->>>>>>> 2a46244f21dd7f0904db4a03eb93d2860c94266f
 /*---PRODUCTOS INDEX---*/
 
 .articulo {
@@ -231,7 +225,6 @@ nav a:hover {
 
 
 @media (max-width: 730px) {
-<<<<<<< HEAD
     .producto {
         background-color: #4e4e4e;
         width: 90%;
@@ -263,15 +256,6 @@ nav a:hover {
         
     }
 
-=======
-  .articulo {
-    display: block;
-    padding: 10px;
-    text-align: center;
-    max-width: 100%;
-    float: left;
-  }
->>>>>>> 2a46244f21dd7f0904db4a03eb93d2860c94266f
 }
 
 /*---FIN PRODUCTOS INDEX---*/
@@ -420,50 +404,37 @@ margin-bottom: 15px;
 }
 /* CENTRADO DIV MENSAJE */
 
-/* CARRITO INICIO */
-
-
-
-<<<<<<< HEAD
-/* FIN VISTA PRODUCTO */
-
-@media (max-width: 500px){
-    
-}
-
+/*Formato de las tablas*/
 table{
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 table tr th {
-    border: 2px solid black;
-    color: white;
-    padding:10px 30px 10px 30px;
-    background: #95999c;
+  border: 2px solid black;
+  color: white;
+  padding:10px 30px 10px 30px;
+  background: #95999c;
 }
 
 .ta table tbody tr td{
-    border: 2px solid black;
-    padding:10px 30px 10px 30px;
-    background: white;
+  border: 2px solid black;
+  padding:10px 30px 10px 30px;
+  background: white;
 }
 
 .tablas{
-    padding: 30px;
-    margin-top: 10px;
-    float: left;
+  padding: 30px;
+  margin-top: 10px;
+  float: left;
 }
 
 .mt-5{
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .botonTabla{
-    margin: auto;
-    width: 100%;
-    height: 40px;
+  margin: auto;
+  width: 100%;
+  height: 40px;
 }
 
-=======
-/* CARRITO INICIO */
->>>>>>> 2a46244f21dd7f0904db4a03eb93d2860c94266f

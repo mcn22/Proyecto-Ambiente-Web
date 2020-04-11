@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <script src="./controladores/validaciones.js" type="text/javascript"></script>
+    <script src="./controladores/manejoUsuarios.js" type="text/javascript"></script>
+    <script src="./controladores/login.js" type="text/javascript"></script>
+    <script src="./controladores/manejoOrdenes.js" type="text/javascript"></script>
+    <title>Proyecto Ambiente Web</title>
+</head>
+
+<body onload="revisaSesion(); listarProductosCarrito()">
+    <header>
+        <nav>
+            <ul id="menuTop">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container align-text-center">
+        <div class="tablas">
+            <h2>Carrito</h2>
+            <h5 id="infoCarrito"></h5>   
+            <div class="ta" id="campoTablaCarrito"></div>
+            <div class="mt-5" id="campoInpBtn">
+            </div>          
+        </div>     
+    </section>
+
+    <footer id="pie">
+        <p id="derechosReservados">
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved
+        </p>
+    </footer>
+
+</body>
+</html>

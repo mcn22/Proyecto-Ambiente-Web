@@ -1,49 +1,26 @@
-<!-- 1	idProducto	int 11 AUTO_INCREMENT	
-
-	2	nombre	varchar 255 		
-
-	3	descripccion	varchar 255		
-
-	4	precio	decimal 10,0			
-
-	5	imageName	blob -->
-
-<?php
-require_once 'conexion.php';
-
-if (isset($_POST['submit'])) {
-    $nombre = strtolower($_POST['nombre']);
-    $desc = $_POST['descripccion'];
-    $precio = $_POST['precio'];
-    $imagen = $_FILES['imagen']['name'];
-    $cantidad = $_POST['cantVenta'];
-    $imagenTMP = $_FILES['imagen']['tmp_name'];
-
-    $folder = "../imagenesProductos/";
-    move_uploaded_file($imagenTMP, $folder . $imagen);
-
-    $sql = "INSERT INTO `producto`(`nombre`, `descripccion`, `precio`, `imageName`,`cantVenta`) VALUES ('$nombre','$desc','$precio','$imagen',$cantidad)";
-    $qry = mysqli_query($db, $sql);
-
-    if ($qry) {
-        echo "<h1>Datos subidos!</h1>";
-    } elseif (!$qry) {
-        echo "<h1>ERROR SUBIENDO DATOS!</h1>";
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <script src="../controladores/validaciones.js" type="text/javascript"></script>
+    <script src="../controladores/manejoUsuarios.js" type="text/javascript"></script>
+    <script src="../controladores/login.js" type="text/javascript"></script>
     <title>Subir Producto</title>
 </head>
+<body onload="revisaSesion()">
+    <header>
+        <nav>
+            <ul id="menuTop">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../tienda.html">Tienda</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<body>
+    <section class="container align-text-center">
     <form action="" method="post" enctype="multipart/form-data">
         <input type="text" name="nombre" id="nombre" placeholder="nombre">
         <br>
@@ -56,8 +33,64 @@ if (isset($_POST['submit'])) {
         <input type="file" name="imagen" id="imagen" placeholder="imagen">
         <br>
         <input type="submit" value="submit" name="submit" id="submit">
+        <h3 id=infoUpload></h3>
     </form>
+    </section>
+    <footer id="pie">
+        <p id="derechosReservados">
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved
+        </p>
+    </footer>
+    <!--Script que crea la funcion para la impresion de la informacion de la carga de datos en la pantalla-->
+    <script language="javascript" type="text/javascript">
+        function imprimeInfo(texto){
+            if(texto == 1){
+                document.getElementById('infoUpload').innerHTML = "Éxito al subir los datos"; 
+            }else{
+                document.getElementById('infoUpload').innerHTML = "Falló la carga de datos..."; 
+            }             
+        }//fin de la funcion
+    </script>
+    <!--Codigo php que inserta los datos en la base de datos-->
+    <?php
+    $server = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'bd_ambiente_web';
+    $db = mysqli_connect($server, $username, $password, $database);
 
+    mysqli_query($db, "SET NAMES 'utf8'");
+    session_start();
+
+    if (isset($_POST['submit'])) {
+        $nombre = strtolower($_POST['nombre']);
+        $desc = $_POST['descripccion'];
+        $precio = $_POST['precio'];
+        $imagen = $_FILES['imagen']['name'];
+        $cantidad = $_POST['cantVenta'];
+        $imagenTMP = $_FILES['imagen']['tmp_name'];
+
+        $folder = "../imagenesProductos/";
+        move_uploaded_file($imagenTMP, $folder . $imagen);
+
+        $sql = "INSERT INTO `producto`(`nombre`, `descripccion`, `precio`, `imageName`,`cantVenta`) VALUES ('$nombre','$desc','$precio','$imagen',$cantidad)";
+        $qry = mysqli_query($db, $sql);
+        //Lanza la funcion de javascript anterior 
+        if ($qry) {
+            echo "<script>";
+            echo "imprimeInfo(1);";
+            echo "</script>";
+        } elseif (!$qry) {       
+            echo "<script>";
+            echo "imprimeInfo(0);";
+            echo "</script>";
+        }
+    }
+    ?>
 </body>
 
 </html>
+
+
+

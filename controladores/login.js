@@ -18,7 +18,7 @@ function login(){
                         document.getElementById("h5InfoLog").innerHTML = "Datos incorrectos..."; 
                         break;     
                     case "1":
-                        window.location.href = "index.php";
+                        window.location.href = "index.html";
                         break;                                     
                     default:
                         break;
