@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <script src="./controladores/validaciones.js" type="text/javascript"></script>
+    <script src="./controladores/manejoUsuarios.js" type="text/javascript"></script>
+    <script src="./controladores/login.js" type="text/javascript"></script>
+
+    <title>Proyecto Ambiente Web</title>
+</head>
+
+<body onload="revisaSesion()">
+    <header>
+        <nav>
+            <ul id="menuTop">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+    </header>
+
+    <section class="container">
+        <div id="register" class="block align-text-center">
+            <h3>Registrate</h3>
+            <form>
+                <input type="text" id="nombre" placeholder="Nombre:">
+                <input type="text" id="nickname" placeholder="Nickname:">
+                <input type="password" id="pass" placeholder="Contraseña:">
+                <input type="button" value="Registrarse" onclick="registrar()">
+            </form>
+        </div>
+        <div class="align-text-center">
+            <h5 id="h5Info"></h5>
+        </div>
+    </section>
+
+
+<footer id="pie">
+        <p id="derechosReservados">
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved
+        </p>
+</footer>
+
+</body>
+</html>

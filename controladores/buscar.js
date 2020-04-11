@@ -9,20 +9,17 @@ document.getElementById("boton-buscar").addEventListener("click", () => {
   let async = true;
 
   ajax.open(method, url, async);
-
   ajax.send();
-
   ajax.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       let datos = JSON.parse(this.responseText);
-      console.log(datos);
-
       for (let i = 0; i < datos.length; i++) {
         let nombre = datos[i].nombre;
         let id = datos[i].idProducto;
         let desc = datos[i].descripccion;
         let precio = datos[i].precio;
         let imagen = datos[i].imageName;
+        let stock = datos[i].cantVenta;
 
         let divArticulo = document.createElement("div");
         divArticulo.classList.add("articulo");
@@ -58,18 +55,18 @@ document.getElementById("boton-buscar").addEventListener("click", () => {
         divTitulo.appendChild(h3Titulo);
 
         let pPrecio = document.createElement("p")
-        pPrecio.innerText = precio;
+        pPrecio.innerText = "‎₡"+precio;
         divPrecio.appendChild(pPrecio);
 
         let pDesc =document.createElement("p")
-        pDesc.innerText = desc;
+        pDesc.innerText = desc + " ("+stock+" unidades disponibles)";
         divDesc.appendChild(pDesc);
 
         let verProd = document.createElement("a")
-        verProd.innerText = "VER PRODUCTO";
-        verProd.setAttribute('href',"producto.php?id=" + id);
+        verProd.innerText = "Agregar al carrito";
+        verProd.setAttribute('onclick',"agregarAlCarrito("+id+")");
         divBoton.appendChild(verProd);
-      }
-    }
+      }//fin del for
+    }//fin del if del readystate
   };
 });
