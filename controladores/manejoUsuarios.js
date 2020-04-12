@@ -1,4 +1,19 @@
 'use strict'
+/* 
+Funciones manejadoras de lo relacionado a los usuarios
+1: registrar(); - Linea: 18
+2: cambioNombre(); - Linea: 47
+3: cambioNick(); - Linea: 77
+4: cambioPass(); - Linea: 107
+5: eliminaCuenta(); - Linea: 141
+6: revisaSesion(); - Linea: 164
+7: llenaDatosMenuSiSesionAdmin(nombre); - Linea: 190
+8: llenaDatosMenuSiSesionCliente(nombre); - Linea: 210
+9: llenaDatosMenuNoSesion(); - Linea: 239
+10: cargaNombreYNickname(); - Linea: 259
+11: cerrarSesion(); - Linea: 281
+12: login(); - Linea: 298
+*/
 
 function registrar(){
     var nombre = document.getElementById("nombre").value;
@@ -6,7 +21,7 @@ function registrar(){
     var pass = document.getElementById("pass").value;
     if(validarNombre(nombre, 1) && validarNick(nickname, 1) && validarPass(pass, 1)){
         var comm = new XMLHttpRequest();
-        comm.open("GET","./modelo/registro.php?opcion=1&nombre="+nombre+"&nickname="+nickname+"&pass="+pass,true);
+        comm.open("GET","./modelo/manejoUsuarios.php?opcion=1&nombre="+nombre+"&nickname="+nickname+"&pass="+pass,true);
         comm.send(null);
         comm.onreadystatechange = function(){
             if(comm.readyState == 4 && comm.status == 200){
@@ -33,7 +48,7 @@ function cambioNombre(){
     var nombre = document.getElementById("nuevoNombre").value;
     if(validarNombre(nombre, 0)){
         var comm = new XMLHttpRequest();
-        comm.open("GET","./modelo/registro.php?opcion=2&cambioNombre="+nombre,true);
+        comm.open("GET","./modelo/manejoUsuarios.php?opcion=2&cambioNombre="+nombre,true);
         comm.send(null);
         comm.onreadystatechange = function(){
             if(comm.readyState == 4 && comm.status == 200){
@@ -63,7 +78,7 @@ function cambioNick(){
     var nick = document.getElementById("nuevoNick").value;
     if(validarNick(nick, 0)){
         var comm = new XMLHttpRequest();
-        comm.open("GET","./modelo/registro.php?opcion=3&cambioNick="+nick,true);
+        comm.open("GET","./modelo/manejoUsuarios.php?opcion=3&cambioNick="+nick,true);
         comm.send(null);
         comm.onreadystatechange = function(){
             if(comm.readyState == 4 && comm.status == 200){
@@ -94,7 +109,7 @@ function cambioPass(){
     var nuevoPass = document.getElementById("nuevoPass").value;
     if(validarPass(viejoPass, 0) && validarPass(nuevoPass, 0)){
         var comm = new XMLHttpRequest();
-        comm.open("GET","./modelo/registro.php?opcion=4&viejoPass="+viejoPass+"&nuevoPass="+nuevoPass,true);
+        comm.open("GET","./modelo/manejoUsuarios.php?opcion=4&viejoPass="+viejoPass+"&nuevoPass="+nuevoPass,true);
         comm.send(null);
         comm.onreadystatechange = function(){
             if(comm.readyState == 4 && comm.status == 200){
@@ -125,7 +140,7 @@ function cambioPass(){
 
 function eliminaCuenta(){
     var comm = new XMLHttpRequest();
-    comm.open("GET","./modelo/registro.php?opcion=5",true);
+    comm.open("GET","./modelo/manejoUsuarios.php?opcion=5",true);
     comm.send(null);
     comm.onreadystatechange = function(){
         if(comm.readyState == 4 && comm.status == 200){
@@ -148,7 +163,7 @@ function eliminaCuenta(){
 
 function revisaSesion(){
     var comm = new XMLHttpRequest();
-    comm.open("GET","./modelo/registro.php?opcion=6",true);
+    comm.open("GET","./modelo/manejoUsuarios.php?opcion=6",true);
     comm.send(null);
     comm.onreadystatechange = function(){
         if(comm.readyState == 4 && comm.status == 200){
@@ -173,15 +188,6 @@ function revisaSesion(){
 }//fin de la revision de la sesion
 
 function llenaDatosMenuSiSesionAdmin(nombre){
-    //Nombre de usuario en el menu
-    var menuTop = document.getElementById("menuTop");
-    var liUsuario = document.createElement('li');
-    var aUsuario = document.createElement('a');
-    aUsuario.appendChild(document.createTextNode(nombre));
-    aUsuario.setAttribute('href','usuario.html');
-    liUsuario.appendChild(aUsuario);
-    menuTop.appendChild(liUsuario);
-    //fin del nombre de usuario en el menu
     //agregar producto en el menu
     var liAgregarProd = document.createElement('li');
     var aAgregarProd = document.createElement('a');
@@ -199,7 +205,7 @@ function llenaDatosMenuSiSesionAdmin(nombre){
     liCerrarSesion.appendChild(aCerrarSesion);
     menuTop.appendChild(liCerrarSesion);
     //fin de cerrar sesion en el menu
-}//fin del llenado de los datos del menu superior si hay sesion activa
+}//fin del llenado de los datos del menu superior si hay sesion activa de tipo administrador
 
 function llenaDatosMenuSiSesionCliente(nombre){
     //Nombre de usuario en el menu
@@ -228,7 +234,7 @@ function llenaDatosMenuSiSesionCliente(nombre){
     liCerrarSesion.appendChild(aCerrarSesion);
     menuTop.appendChild(liCerrarSesion);
     //fin de cerrar sesion en el menu
-}//fin del llenado de los datos del menu superior si hay sesion activa
+}//fin del llenado de los datos del menu superior si hay sesion activa de tipo cliente
 
 function llenaDatosMenuNoSesion(){
     //Texto de inicia sesion en el menu de inicio si no hay sesion
@@ -248,11 +254,11 @@ function llenaDatosMenuNoSesion(){
     liregistro.appendChild(aregistro);
     menuTop.appendChild(liregistro);
     //fin del texto de registrarse en el menu del inicio
-}//fin del llenado de los datos del menu superior si hay sesion activa
+}//fin del llenado de los datos del menu superior si no hay sesion activa
 
 function cargaNombreYNickname(){
     var comm = new XMLHttpRequest();
-    comm.open("GET","./modelo/registro.php?opcion=8",true);
+    comm.open("GET","./modelo/manejoUsuarios.php?opcion=8",true);
     comm.send(null);
     comm.onreadystatechange = function(){
         if(comm.readyState == 4 && comm.status == 200){
@@ -274,7 +280,7 @@ function cargaNombreYNickname(){
 
 function cerrarSesion(){
     var comm = new XMLHttpRequest();
-    comm.open("GET","./modelo/registro.php?opcion=9",true);
+    comm.open("GET","./modelo/manejoUsuarios.php?opcion=9",true);
     comm.send(null);
     comm.onreadystatechange = function(){
         if(comm.readyState == 4 && comm.status == 200){
@@ -288,3 +294,35 @@ function cerrarSesion(){
         }//fin del if de obtencion de resultados
     }//fin del onreadystatechange
 }//fin de la funcion que cierra la sesion
+
+function login(){
+    var nickname = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+    if(nickname.length > 0 && pass.length > 0){
+        var comm = new XMLHttpRequest();
+        comm.open("GET","./modelo/manejoUsuarios.php?opcion=10&username="+nickname+"&password="+pass,true);
+        comm.send(null);
+        comm.onreadystatechange = function(){
+            if(comm.readyState == 4 && comm.status == 200){
+                console.log(comm.responseText);
+                switch (comm.responseText) {
+                    case "-1":
+                        document.getElementById("h5InfoLog").innerHTML = "Error de conexión..."; 
+                        break;
+                    case "0":
+                        document.getElementById("h5InfoLog").innerHTML = "Datos incorrectos..."; 
+                        break;     
+                    case "1":
+                        window.location.href = "index.html";
+                        break;                                     
+                    default:
+                        break;
+                }
+            }//fin del if de obtencion de resultados
+        }//fin del onreadystatechange
+    }
+    else{
+        document.getElementById("h5InfoLog").innerHTML = "Llene los dos campos..."; 
+    }
+    
+}//fin de la funcion manejadora del login

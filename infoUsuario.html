@@ -8,53 +8,48 @@
     <script src="./controladores/validaciones.js" type="text/javascript"></script>
     <script src="./controladores/manejoUsuarios.js" type="text/javascript"></script>
     <script src="./controladores/login.js" type="text/javascript"></script>
-    <script src="./controladores/manejoOrdenes.js" type="text/javascript"></script>
+    <script src="./controladores/manejoOrdenesProductos.js" type="text/javascript"></script>
     <title>Proyecto Ambiente Web</title>
 </head>
 
 <body onload="revisaSesion(); cargaNombreYNickname()">
-    <header>
+    <div class="header">
         <nav>
             <ul id="menuTop">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="tienda.html">Tienda</a></li>
             </ul>
         </nav>
-    </header>
-
-    <section class="container">
-        <div class=" info_user">
-            <h2 id="h2-nosotros">Cambiar tus datos</h2>
+    </div>
+    <div class="section">
+        <div class=" info_user">          
             <div class="align-text-center">
-                <h3 id="h3Nombre"></h3>
+                <h2 id="h2-nosotros" class="mt-5">Cambiar tus datos</h2>
+                <h3 id="h3Nombre" class="mt-5"></h3>
                 <input type="text" id="nuevoNombre">
-                <input type="button" value="Cambiar" onclick="cambioNombre()">
+                <input type="button" value="Cambiar" onclick="cambioNombre()" class="botones">
                 <h3 id="h3Nick"></h3>
                 <input type="text" id="nuevoNick">
-                <input type="button" value="Cambiar" onclick="cambioNick()">       
+                <input type="button" value="Cambiar" onclick="cambioNick()" class="botones">
                 <h3>Cambio de contraseña.</h3>
                 <input type="password" id="viejoPass" placeholder="Contraseña anterior...">
                 <input type="password" id="nuevoPass" placeholder="Contraseña nueva...">
-                <input type="button" value="Cambiar" onclick="cambioPass()"> 
+                <input type="button" value="Cambiar" onclick="cambioPass()" class="botones">
                 <h5 id="h5InfoCambio"></h5>
             </div>
         </div>
-    </section>
-    <section class="container">
-        <div class=" info_user">
-            <h2 id="h2-nosotros">Eliminar cuenta</h2>
+        <div class="info_user">
             <div class="align-text-center">
-                <input type="button" value="Eliminar" onclick="eliminaCuenta()">
+                <a onclick="eliminaCuenta()" style="color: red;">Eliminar cuenta</a>
             </div>
         </div>
-    </section>
-
-    <footer id="pie">
+    </div>
+    <div class="footer">
         <p id="derechosReservados">
             Copyright &copy;
             <script>document.write(new Date().getFullYear());</script> All rights reserved
         </p>
-    </footer>
-
+    </div>
 </body>
+
 </html>

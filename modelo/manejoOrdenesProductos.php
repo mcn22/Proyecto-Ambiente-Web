@@ -23,7 +23,10 @@ if (!$cnx) {
             listarCarrito($cnx);
         break;
         case "5":
-            confirmaCompra($cnx);
+            confirmaCompra($cnx);buscarProductosPorNombre($cnx);
+        break;
+        case "6":
+            buscarProductosPorNombre($cnx);
         break;
         default:
             # code...
@@ -217,5 +220,25 @@ function vaciarCarrito($cnx, $idUser){
     $delete = "DELETE FROM `carrito` WHERE ID_USUARIO = $idUser";
     mysqli_query($cnx,  $delete);
 }//fin de la funcion que borra el carrito el confirmar la compra
+
+function buscarProductosPorNombre($cnx){
+    $nombreProducto = strtolower($_GET['nombre']);
+    if($nombreProducto == ""){
+        $select = "SELECT * FROM `producto`";  
+        $query = mysqli_query($cnx, $select);
+        $datos = array();  
+        while ($row = mysqli_fetch_assoc($query)) {
+            $datos[] = $row;
+        }//fin del while   
+    }else{
+        $select = "SELECT * FROM `producto` WHERE nombre = '$nombreProducto'";
+        $query = mysqli_query($cnx, $select);
+        $datos = array();
+        while ($row = mysqli_fetch_assoc($query)) {
+            $datos[] = $row;
+        }//fin del while`
+}//fin del else
+    echo json_encode($datos);
+}//fin de la busqueda de productos por nombre
 
 ?>

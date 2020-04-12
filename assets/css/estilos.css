@@ -1,9 +1,12 @@
+/*Estructura general*/
 html,
 body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  background-image: url("../img/fondo.jpg");
+  background-repeat: repeat;
 }
 
 * {
@@ -15,42 +18,92 @@ body {
   margin: 0;
 }
 
-/*----UTILIDADES----*/
+.header {
+  background-color: #4e4e4e;
+  width: 100%;
+  height: 10%;
+}
+
+.section{
+  width: 100%;
+  height: 80%;
+}
+
+.footer {
+  height: 10%;
+  width: 100%;
+  background-color: #4e4e4e;
+  float: inline-end;
+}
 
 .container {
   width: 90%;
   margin: 0 auto;
 }
 
+/*fin estructura general*/
+/*----UTILIDADES----*/
+
 img {
   max-width: 100%;
 }
 
+.info_user{
+  width: 70%;
+  margin: auto;
+}
+
+input {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+  border-radius: 5px;
+}
+
+/*tableta 830px*/
+@media (max-width: 830px) {
+  .info_user{
+    width: 70%;  
+  }
+
+  input {
+    width: 65%;
+  }
+}
+
+/*Celular 740px*/
+@media (max-width: 745px) {
+  .info_user{
+    width: 90%;  
+  }
+
+  input {
+    width: 85%;
+  }
+}
+
 /*----FIN UTILIDADES----*/
-
-/*-------NAV BAR-------*/
-
-#hi-usuario {
-  color: cornflowerblue;
-  padding: 10px 0;
+/*------Margenes, paddings, aligns------*/
+.pt-10{
+  padding-top: 10%;
 }
 
-#login {
-  text-align: center;
+.m-auto{
+  margin: auto;
 }
 
+.mt-5{
+  margin-top: 15px;
+}
 
 .align-text-center{
-    text-align: center;
-}
-
-#registro {
   text-align: center;
 }
 
-header {
-  background-color: #4e4e4e;
-}
+/*----fin Margenes y paddings----*/
+
+
+/*-------NAV BAR-------*/
 
 nav ul {
   margin: 0;
@@ -72,131 +125,45 @@ nav ul li a {
 }
 
 nav a:hover {
-  text-decoration: underline black;
+  text-decoration: none;
+  color: cornflowerblue;
 }
 
-@media (max-width: 730px) {
-  #hi-usuario {
-    color: cornflowerblue;
-    padding: 10px 0;
-  }
-  .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  header {
-    background-color: #4e4e4e;
-  }
-  nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  nav li {
-    display: block;
-    margin-left: 70px;
-    padding-top: 23px;
-    margin-bottom: 5px;
-  }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 23px;
-  }
-  nav a:hover {
-    text-decoration: underline black;
+/*tableta 830px*/
+@media (max-width: 830px) {
+  .header {
+    height: 10%;
   }
 }
 
-@media (max-width: 768px) {
-  #hi-usuario {
-    color: cornflowerblue;
-    padding: 10px 0;
+/*Celular 740px*/
+@media (max-width: 745px) {
+  .header {
+    height: 20%;
   }
-  .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  header {
-    background-color: #4e4e4e;
-  }
-  nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+
   nav li {
-    display: block;
-    margin-left: 70px;
-    padding-top: 23px;
-    margin-bottom: 5px;
-    text-align: center;
-  }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 23px;
-  }
-  nav a:hover {
-    text-decoration: underline black;
+    float: left;
   }
 }
 
 /*-------FIN NAV BAR-------*/
 
-/*------CONTENIDO INDEX------*/
-
-.informacion-nosotros {
-    width: 30%;
-    float: left;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.informacion-nosotros h3 {
-    margin: 8px 0;
-}
-
-#h2-nosotros {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.info_user{
-    width: 40%;
-    margin: auto;
-}
-
-@media (max-width: 730px) {
-    .informacion-nosotros {
-        width: 90%;
-        text-align: center;
-    }
-    .informacion-nosotros h3 {
-        margin: 8px 0;
-    }
-    #h2-nosotros {
-        text-align: center;
-        margin: 40px 0;
-    }
-    #pie {
-        display: none;
-    }
-    
-}
-
-
-/*---PRODUCTOS INDEX---*/
+/*------Productos y tienda------*/
 
 .articulo {
   padding: 10px;
+  margin: 5px;
   text-align: center;
   float: left;
-  max-width: 33.3%;
+  max-width: 300px;
+  height: 420px;
+  border: 2px solid #95999c;
+  background-color: #fff;
+  
 }
 .articulo div {
-  padding: 5px 0;
+  padding-top: 10px;
 }
 .articulo .imagen img {
   height: 200px;
@@ -206,203 +173,37 @@ nav a:hover {
   font-weight: bold;
   font-size: 18px;
 }
+
 .botones {
   border: 0;
   border-radius: 5px;
   background: black;
   cursor: pointer;
   padding: 10px;
+  color: #fff;
 }
 .botones:hover {
   background: cornflowerblue;
 }
 
-.botones a {
-  color: white;
-  text-decoration: none;
-}
+/*Celular 740px*/
+@media (max-width: 745px) {
+  .articulo {
+    max-width: 100%; 
+    height: 450px;    
+  }
 
+  .producto {
+      background-color: #4e4e4e;
+      width: 90%;
+  }
 
-
-@media (max-width: 730px) {
-    .producto {
-        background-color: #4e4e4e;
-        width: 90%;
-    }
-    .img-producto {
-        width: 100%;
-        height: 60%;
-    }
-    .contenido-producto {
-        width: 100%;
-        height: 40%;
-        color: white;
-        padding: 10px;
-    }
-    .contenido-producto a {
-        text-decoration: none;
-        color: cornflowerblue;
-    }
-    .contenido-producto a:hover {
-        text-decoration: underline black;
-    }
-    .contenido-producto h3,
-    p,
-    a {
-        padding: 3px 0;
-    }
-    .info_user{
-        width: 90%;
-        
-    }
-
-}
-
-/*---FIN PRODUCTOS INDEX---*/
-
-/*------CONTENIDO INDEX------*/
-
-/*---- FOOTER ------*/
-
-#pie {
-  height: 7%;
-  width: 100%;
-  background-color: #4e4e4e;
-  float: inline-end;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-#derechosReservados {
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-/*----FIN FOOTER----*/
-
-/*----------  POP UP FORM  ----------*/
-
-.bg-modal-login {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  /*-----FLEX PARA CENTRAR CONTENIDO DE HIJO(modal-content)------*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-.bg-modal-registro {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  /*-----FLEX PARA CENTRAR CONTENIDO DE HIJO(modal-content)------*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-.modal-content {
-  width: 500px;
-  height: 300px;
-  background-color: white;
-  border-radius: 4px;
-}
-
-input {
-  width: 50%;
-  display: block;
-  margin: 15px auto;
-}
-
-.close-login {
-  margin-left: 5px;
-  font-size: 42px;
-}
-
-.close-registro {
-  margin-left: 5px;
-  font-size: 42px;
-}
-
-/*---------- FIN POP UP FORM ----------*/
-
-/* VISTA PRODUCTO */
-
-.vista-producto {
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-@media (max-width: 730px) {
-  .vista-producto {
-    width: 500px;
-    height: 350px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  .info_user{
+      width: 90%;  
   }
 }
-.vista-img-producto {
-  max-width: 100%;
-}
 
-#boton-compra {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-.botones-vista:hover {
-  background-color: cornflowerblue;
-}
-.botones-vista {
-  text-align: center;
-  border: 0;
-  border-radius: 5px;
-  background: black;
-  cursor: pointer;
-  color: white;
-  padding: 10px;
-  width: 97%;
-  text-align: center;
-}
-.vista-producto .titulo {
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-}
-.vista-producto .precio {
-  text-align: center;
-}
-
-/* FIN VISTA PRODUCTO */
-
-/* CENTRADO DIV MENSAJE */
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-#h1Centered{
-margin-bottom: 15px;
-}
-/* CENTRADO DIV MENSAJE */
+/*---Fin Productos y tienda----*/
 
 /*Formato de las tablas*/
 table{
@@ -428,8 +229,9 @@ table tr th {
   float: left;
 }
 
-.mt-5{
-  margin-top: 15px;
+.tablaCarrito{
+  padding: 30px;
+  margin-top: 10px;
 }
 
 .botonTabla{
@@ -437,4 +239,25 @@ table tr th {
   width: 100%;
   height: 40px;
 }
+
+/*Celular 740px*/
+@media (max-width: 745px) {
+  table tr th {
+    padding:10px;
+  }
+
+  .ta table tbody tr td{
+    padding:10px;
+  }
+}
+
+/*Elementos footer*/
+
+#derechosReservados {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/*fin Elementos footer*/
 

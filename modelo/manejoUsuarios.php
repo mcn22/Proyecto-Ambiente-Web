@@ -33,7 +33,10 @@ if (!$cnx) {
         break;   
         case "9":
             cierraSesion();
-        break;     
+        break;
+        case "10":
+            login($cnx);
+        break;      
         default:
             # code...
         break;
@@ -46,7 +49,7 @@ function insertaUsuario($cnx){
     $pass = $_GET["pass"];
     mysqli_set_charset($cnx, "utf8");
     $pass_cifrado = password_hash($pass, PASSWORD_BCRYPT, ['cost'=>4]);
-    $insert = "INSERT INTO `usuarios`(`nombre_usuario`, `nickname_usuario`,`pass_usuario`) VALUES ('$nombre','$nickname', '$pass_cifrado')";
+    $insert = "INSERT INTO `usuarios`(`nombre_usuario`, `nickname_usuario`,`pass_usuario`,`tipoUsuario`) VALUES ('$nombre','$nickname', '$pass_cifrado','c')";
     $resultado = mysqli_query($cnx, $insert);
     if ($resultado) {
         echo "1";
@@ -149,5 +152,27 @@ function cierraSesion(){
         echo "0";
     }
 }//fin del cerrado de la sesion
+
+function login($cnx){
+    $username = $_GET["username"];
+    $password = $_GET["password"];
+    mysqli_set_charset($cnx, "utf8");
+    $select = "SELECT * FROM usuarios WHERE nickname_usuario = '$username'";
+    $resultado = mysqli_query($cnx, $select);
+    if (mysqli_num_rows($resultado) == 1) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        //mysqli_fetch_assoc() me trae un array asociativo con lo consultado en el select
+        $verify = password_verify($password, $usuario['pass_usuario']);
+        if ($verify) {
+            $_SESSION['usuario'] = $usuario;
+            echo "1";
+        }else{
+            echo "0";
+        }
+    }else{
+        echo "0";
+    }//fin del segundo else
+}//fin de inserta usuario
+
 
 ?>
