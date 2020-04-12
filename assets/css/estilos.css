@@ -22,18 +22,20 @@ body {
   background-color: #4e4e4e;
   width: 100%;
   height: 10%;
+  position: relative;
 }
 
 .section{
   width: 100%;
-  height: 80%;
+  min-height: 80%;
+  position: relative;
 }
 
 .footer {
   height: 10%;
   width: 100%;
   background-color: #4e4e4e;
-  float: inline-end;
+  position: absolute;
 }
 
 .container {
@@ -43,9 +45,35 @@ body {
 
 /*fin estructura general*/
 /*----UTILIDADES----*/
+.seccionIndex{
+  margin: auto;
+  text-align: center;
+  height: 450px;
+}
+
+.h1Index{
+  margin: auto;
+  padding: 30px 0px;
+  text-align: center;
+}
 
 img {
   max-width: 100%;
+}
+
+.imagenIndex {
+  padding: 10px;
+  margin: 20px 5px 0px 5px;
+  max-width: 60%;
+  float: left;
+}
+
+.textoIndex{
+  float: left;
+  max-width: 30%;
+  padding: 10px;
+  margin: 20px 5px;
+  text-align: center;
 }
 
 .info_user{
@@ -65,10 +93,24 @@ input {
   .info_user{
     width: 70%;  
   }
-
   input {
     width: 65%;
   }
+  .imagenIndex {
+    max-width: 100%;
+  }
+  
+  .textoIndex{
+    max-width: 100%;;
+  }
+  .seccionIndex{
+    height: 550px;
+  }
+
+  .sectionInd{
+    height: auto;
+  }
+  
 }
 
 /*Celular 740px*/
@@ -79,6 +121,10 @@ input {
 
   input {
     width: 85%;
+  }
+
+  .seccionIndex{
+    height: 480px;
   }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
             </ul>
         </nav>
     </div>
-    <div class="section container align-text-center">
+    <div class="section container align-text-center pt-10">
         <form action="" method="post" enctype="multipart/form-data">
             <h4>Sube un producto</h4>
             <input type="text" name="nombre" id="nombre" placeholder="nombre">
@@ -37,12 +37,12 @@
             <h3 id=infoUpload></h3>
         </form>
     </div>
-    <footer id="pie">
+    <div class="footer">
         <p id="derechosReservados">
             Copyright &copy;
             <script>document.write(new Date().getFullYear());</script> All rights reserved
         </p>
-    </footer>
+    </div>
     <!--Script que crea la funcion para la impresion de la informacion de la carga de datos en la pantalla-->
     <script language="javascript" type="text/javascript">
         function imprimeInfo(texto) {
