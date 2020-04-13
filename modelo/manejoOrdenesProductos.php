@@ -23,7 +23,7 @@ if (!$cnx) {
             listarCarrito($cnx);
         break;
         case "5":
-            confirmaCompra($cnx);buscarProductosPorNombre($cnx);
+            confirmaCompra($cnx);
         break;
         case "6":
             buscarProductosPorNombre($cnx);

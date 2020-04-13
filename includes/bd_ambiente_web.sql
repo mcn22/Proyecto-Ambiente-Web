@@ -2,10 +2,10 @@
 -- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 12, 2020 at 02:52 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-04-2020 a las 00:08:54
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bd_ambiente_web`
+-- Base de datos: `bd_ambiente_web`
 --
 CREATE DATABASE IF NOT EXISTS `bd_ambiente_web` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bd_ambiente_web`;
@@ -27,7 +27,7 @@ USE `bd_ambiente_web`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrito`
+-- Estructura de tabla para la tabla `carrito`
 --
 
 DROP TABLE IF EXISTS `carrito`;
@@ -42,7 +42,7 @@ CREATE TABLE `carrito` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalleorden`
+-- Estructura de tabla para la tabla `detalleorden`
 --
 
 DROP TABLE IF EXISTS `detalleorden`;
@@ -55,13 +55,22 @@ CREATE TABLE `detalleorden` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detalleorden`
+-- Volcado de datos para la tabla `detalleorden`
 --
+
+INSERT INTO `detalleorden` (`ID_DETALLE`, `ID_ORDEN`, `ID_PROD`, `CANTIDAD`, `COSTO`) VALUES
+(8, 1, 1, 1, '5000.0'),
+(9, 1, 4, 1, '15000.0'),
+(10, 2, 8, 1, '7500.0'),
+(12, 3, 5, 2, '30000.0'),
+(13, 3, 7, 1, '11500.0'),
+(14, 4, 8, 2, '15000.0'),
+(15, 4, 2, 1, '10000.0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orden`
+-- Estructura de tabla para la tabla `orden`
 --
 
 DROP TABLE IF EXISTS `orden`;
@@ -73,13 +82,19 @@ CREATE TABLE `orden` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `orden`
+-- Volcado de datos para la tabla `orden`
 --
+
+INSERT INTO `orden` (`ID_ORDEN`, `ID_USUARIO`, `DIRECCION`, `TOTAL`) VALUES
+(1, 4, '300mts bomberos central, casa verde mano derecha.', '20000.0'),
+(2, 4, '50mts este de la farmacia la central, casa color blanco.', '7500.0'),
+(3, 5, '200mts norte y 100 oeste del templo catolico Tejar, casa color crema con tapia blanca y porton cafe grande a mano derecha.', '41500.0'),
+(4, 6, '75 mts oeste del parque central de San Carlos, casa color azul mano derecha', '25000.0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 DROP TABLE IF EXISTS `producto`;
@@ -93,23 +108,23 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`idProducto`, `nombre`, `descripccion`, `precio`, `imageName`, `cantVenta`) VALUES
-(1, 'camiseta space', 'Color negro, talla S, Hombre', '5000', 0x31332e6a7067, 43),
-(2, 'camisa de vestir cuadros', 'Color rojo, talla M, Hombre', '10000', 0x31322e6a7067, 35),
+(1, 'camiseta space', 'Color negro, talla S, Hombre', '5000', 0x31332e6a7067, 42),
+(2, 'camisa de vestir cuadros', 'Color rojo, talla M, Hombre', '10000', 0x31322e6a7067, 32),
 (3, 'camisa de vestir cuadros', 'Color celeste, talla S, Hombre', '1000', 0x31312e6a7067, 55),
-(4, 'sweater', 'Color blanco, talla M, Hombre', '15000', 0x31302e6a7067, 30),
-(5, 'sweater', 'Color turquesa, talla S, Mujer', '15000', 0x322e6a7067, 44),
-(6, 'sweater', 'Color blanco/negro, talla M, Mujer', '15000', 0x312e6a7067, 50),
-(7, 'pantalon', 'Color turquesa, talla 32, Mujer', '11500', 0x382e6a7067, 24),
-(8, 'camisa manga corta', 'Color azul, talla S, Hombre', '7500', 0x392e6a7067, 35);
+(4, 'sweater', 'Color blanco, talla M, Hombre', '15000', 0x31302e6a7067, 28),
+(5, 'sweater', 'Color turquesa, talla S, Mujer', '15000', 0x322e6a7067, 42),
+(6, 'sweater', 'Color blanco/negro, talla M, Mujer', '15000', 0x312e6a7067, 47),
+(7, 'pantalon', 'Color turquesa, talla 32, Mujer', '11500', 0x382e6a7067, 23),
+(8, 'camisa manga corta', 'Color azul, talla S, Hombre', '7500', 0x392e6a7067, 32);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 DROP TABLE IF EXISTS `usuarios`;
@@ -122,18 +137,21 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `nickname_usuario`, `pass_usuario`, `tipoUsuario`) VALUES
 (1, 'Admin', 'admin', '$2y$04$43CLWElmDI9jd.VRM1dtHuo3pel8K1wU1QtGjnnaiKuWOvmBqHBn6', 'a'),
+(4, 'Cliente Uno', 'cliente1', '$2y$04$fJ.fAbeBjeemcSVcVCMowONMubzj8LjHD4zhS7.ywrxceBPlYClt6', 'c'),
+(5, 'Cliente Dos', 'cliente2', '$2y$04$tKnOJbm.cdYaLR0/50kY9.0Ug3ZUBBwxo2k0vocCs.Ys0kebsnIPW', 'c'),
+(6, 'Cliente Tres', 'cliente3', '$2y$04$J/FiGXQoS8YoZ6QH9BT4seZ9uNs6TpKjXIJsuqlAk9yoBSOMWhB8y', 'c');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `carrito`
+-- Indices de la tabla `carrito`
 --
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`ID_CARRITO`),
@@ -141,7 +159,7 @@ ALTER TABLE `carrito`
   ADD KEY `ID_PROD` (`ID_PROD`);
 
 --
--- Indexes for table `detalleorden`
+-- Indices de la tabla `detalleorden`
 --
 ALTER TABLE `detalleorden`
   ADD PRIMARY KEY (`ID_DETALLE`),
@@ -149,73 +167,73 @@ ALTER TABLE `detalleorden`
   ADD KEY `ID_PROD` (`ID_PROD`);
 
 --
--- Indexes for table `orden`
+-- Indices de la tabla `orden`
 --
 ALTER TABLE `orden`
   ADD PRIMARY KEY (`ID_ORDEN`),
   ADD KEY `ID_USUARIO` (`ID_USUARIO`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `nickname_usuario` (`nickname_usuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `carrito`
+-- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `ID_CARRITO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_CARRITO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `detalleorden`
+-- AUTO_INCREMENT de la tabla `detalleorden`
 --
 ALTER TABLE `detalleorden`
-  MODIFY `ID_DETALLE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_DETALLE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `producto`
+-- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `carrito`
+-- Filtros para la tabla `carrito`
 --
 ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuarios` (`id_usuario`),
   ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`ID_PROD`) REFERENCES `producto` (`idProducto`);
 
 --
--- Constraints for table `detalleorden`
+-- Filtros para la tabla `detalleorden`
 --
 ALTER TABLE `detalleorden`
   ADD CONSTRAINT `detalleorden_ibfk_1` FOREIGN KEY (`ID_ORDEN`) REFERENCES `orden` (`ID_ORDEN`),
   ADD CONSTRAINT `detalleorden_ibfk_2` FOREIGN KEY (`ID_PROD`) REFERENCES `producto` (`idProducto`);
 
 --
--- Constraints for table `orden`
+-- Filtros para la tabla `orden`
 --
 ALTER TABLE `orden`
   ADD CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuarios` (`id_usuario`);
