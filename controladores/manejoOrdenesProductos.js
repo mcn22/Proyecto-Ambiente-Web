@@ -470,9 +470,18 @@ function agregaElementosBusqueda(datos) {
         let divDesc = document.createElement('div')
         divDesc.classList.add('precio');
 
+        let inputCant = document.createElement('input');
+        inputCant.setAttribute('type', 'number');
+        inputCant.setAttribute('min', '1');
+        inputCant.setAttribute('max', stock);
+        inputCant.setAttribute('value', '1');
+        inputCant.setAttribute('id', 'cant' + id);
+        inputCant.classList.add('precio');
+
         divArticulo.appendChild(divImg);
         divArticulo.appendChild(divTitulo);
         divArticulo.appendChild(divPrecio);
+        divArticulo.appendChild(inputCant);
         divArticulo.appendChild(divDesc);
         divArticulo.appendChild(divBoton);
         divResp.appendChild(divArticulo);

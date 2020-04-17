@@ -231,7 +231,7 @@ function buscarProductosPorNombre($cnx){
             $datos[] = $row;
         }//fin del while   
     }else{
-        $select = "SELECT * FROM `producto` WHERE nombre = '$nombreProducto'";
+        $select = "SELECT * FROM `producto` WHERE nombre LIKE '$nombreProducto%'";
         $query = mysqli_query($cnx, $select);
         $datos = array();
         while ($row = mysqli_fetch_assoc($query)) {
