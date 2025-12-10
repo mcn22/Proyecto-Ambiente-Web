@@ -3,7 +3,7 @@
 function validarNombre(nombre, llamada){
     var ok = false;
     if (nombre.length > 0 && nombre.length < 20) {
-        var regex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
+        var regex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s+[a-zA-ZÀ-ÿ\u00f1\u00d1]+)*$/g;
         if(regex.exec(nombre)){
             ok = true;
         }
